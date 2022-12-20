@@ -1,0 +1,10 @@
+.pantry__list {
+  background-color: #dfbd92;
+  /* background-color: #c19a6b; */
+  height: 40rem;
+  overflow: auto;
+}
+.pantry__list ul {
+  list-style: none;
+  padding: 3rem;
+}

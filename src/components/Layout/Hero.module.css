@@ -1,0 +1,39 @@
+.hero {
+  height: 60rem;
+
+  background: linear-gradient(
+      rgba(167, 166, 166, 0.387),
+      rgba(167, 166, 166, 0.387)
+    ),
+    url("../../assets/imgs/background-img3.jpg");
+  background-size: cover;
+  background-position: center;
+  display: grid;
+
+  place-items: center;
+}
+
+.hero__text {
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.hero__text h1 {
+  text-shadow: 1px 1px 5px rgba(60, 59, 59, 0.419);
+  color: #fff;
+  font-size: 5.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.hero__description {
+  background: rgba(255, 255, 255, 0.772);
+  /* background-color: rgba(72, 72, 71, 0.345); */
+  padding: 1.2rem;
+  border-radius: 2rem;
+}
+.hero__description p {
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: #9f8170;
+  margin-bottom: 1.2rem;
+}

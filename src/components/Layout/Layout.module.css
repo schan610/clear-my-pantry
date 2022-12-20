@@ -1,0 +1,8 @@
+.grid {
+  display: grid;
+
+  grid-template-columns: minmax(2rem, 1fr) 40rem 95rem minmax(2rem, 1fr);
+  background-color: #fff;
+
+  padding: 6rem 0;
+}

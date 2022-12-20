@@ -21,4 +21,12 @@ html {
 html,
 body {
   height: 100%;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 90em) {
+  html {
+    font-size: 58.5%;
+  }
 }

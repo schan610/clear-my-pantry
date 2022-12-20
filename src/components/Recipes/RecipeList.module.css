@@ -1,0 +1,11 @@
+.recipe__list {
+  padding: 0;
+  max-width: 100%;
+  max-height: 100%;
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr)); */
+  grid-template-columns: repeat(3, 1fr);
+
+  place-items: center;
+  grid-gap: 3rem;
+}
