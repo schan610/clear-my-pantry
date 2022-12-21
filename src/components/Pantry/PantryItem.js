@@ -4,7 +4,7 @@ import { Plus, Minus } from "react-feather";
 const PantryItem = () => {
   return (
     <li className={classes["pantry__item"]}>
-      <Plus className={`${classes.feather} ${classes["feather-plus"]}`} />
+      <Minus className={`${classes.feather} ${classes["feather-minus"]}`} />
       bok choy
     </li>
   );
