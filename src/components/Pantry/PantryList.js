@@ -5,6 +5,12 @@ import PantryContext from "../../context/PantryContext";
 
 const PantryList = (props) => {
   const pantryCtx = useContext(PantryContext);
+
+  const removeItemHandler = (id) => {
+    console.log(id);
+    pantryCtx.removeItem(id);
+  };
+
   return (
     <div className={classes["pantry__list"]}>
       {pantryCtx.items.length <= 0 && (
@@ -16,7 +22,8 @@ const PantryList = (props) => {
             <PantryItem
               name={ing.name}
               key={ing.id}
-              addItem={props.getNewItem}
+              id={ing.id}
+              removeItem={removeItemHandler}
             />
           );
         })}

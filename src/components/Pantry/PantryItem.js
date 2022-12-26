@@ -4,7 +4,10 @@ import { Minus } from "react-feather";
 const PantryItem = (props) => {
   return (
     <li className={classes["pantry__item"]}>
-      <Minus className={`${classes.feather} ${classes["feather-minus"]}`} />
+      <Minus
+        className={`${classes.feather} ${classes["feather-minus"]}`}
+        onClick={props.removeItem.bind(this, props.id)}
+      />
       {props.name}
     </li>
   );

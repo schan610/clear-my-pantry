@@ -9,16 +9,15 @@ const pantryReducer = (state, action) => {
     const item = action.item;
     const updatedItems = state.items.concat(item);
     const updateState = { ...state, items: updatedItems };
-    console.log(updateState);
+
     return updateState;
   }
-  // if (action.type === "REMOVE") {
-  //   const item = action.item;
-  //   const updatedItems = state.items.concat(item);
-  //   const updateState = { ...state, items: updatedItems };
-  //   console.log(updateState);
-  //   return updateState;
-  // }
+  if (action.type === "REMOVE") {
+    const updatedItems = state.items.filter((ing) => ing.id !== action.id);
+    const updateState = { ...state, items: updatedItems };
+
+    return updateState;
+  }
 
   return defaultPantryState;
 };
@@ -29,10 +28,14 @@ const PantryProvider = (props) => {
   const addItemHandler = (item) => {
     dispatch({ type: "ADD", item: item });
   };
+  const removeItemHandler = (id) => {
+    dispatch({ type: "REMOVE", id });
+  };
 
   const pantryContext = {
     items: pantryState.items,
     addItem: addItemHandler,
+    removeItem: removeItemHandler,
   };
   return (
     <PantryContext.Provider value={pantryContext}>
