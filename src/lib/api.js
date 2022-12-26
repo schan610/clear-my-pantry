@@ -7,7 +7,7 @@ export async function getAutoComplete(query) {
     `${API_AUTOCOMPLETE_URL}&query=${query}&number=5&metaInformation=true`
   );
   if (!response.ok) {
-    throw new Error("Could not fetch quotes.");
+    throw new Error("Could not fetch queries.");
   }
 
   const data = await response.json();
@@ -23,7 +23,7 @@ export async function getRecipes(pantryItems) {
     `${API_RECIPE_URL}&ingredients=${joinedItems}&ignorePantry=true&number=10`
   );
   if (!response.ok) {
-    throw new Error("Could not fetch quotes.");
+    throw new Error("Could not fetch recipes.");
   }
 
   const data = await response.json();
