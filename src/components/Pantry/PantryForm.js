@@ -46,7 +46,7 @@ const PantryForm = (props) => {
     <>
       <form className={classes.wrapper}>
         <label> Select Ingredients</label>
-
+        {/* <p className={classes.msg}>Ingredient already in your pantry</p> */}
         <Search className={classes["feather-search"]} />
         <input
           onBlur={toggleFocusHandler}

@@ -8,7 +8,7 @@ const PantryList = (props) => {
   return (
     <div className={classes["pantry__list"]}>
       {pantryCtx.items.length <= 0 && (
-        <p>Your pantry is empty, add some ingredients above!</p>
+        <p>Your pantry is empty, add some ingredients by searching above!</p>
       )}
       <ul>
         {pantryCtx.items.map((ing) => {

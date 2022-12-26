@@ -8,3 +8,9 @@
   list-style: none;
   padding: 3rem;
 }
+
+.pantry__list p {
+  padding: 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
