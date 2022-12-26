@@ -9,11 +9,22 @@ const Pantry = () => {
   const pantryCtx = useContext(PantryContext);
 
   const getNewItem = (item) => {
-    console.log(`clicked`);
+    // check if item already exists
+    const exists = pantryCtx.items.filter((ing) => ing.id === item.id);
+    if (exists.length >= 1) {
+      alert(`Ingredient already exists in pantry`);
+      return;
+    }
+
     pantryCtx.addItem(item);
   };
+
   return (
     <div className={classes.pantry}>
+      {/* <div className={classes["pantry__message"]}>
+        <p>Ingredient already in pantry</p>
+      </div> */}
+
       <div className={classes.header}>
         <h1>Your Ingredients</h1>
         <PantryForm addItem={getNewItem} />

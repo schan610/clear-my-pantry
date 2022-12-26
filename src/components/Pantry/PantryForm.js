@@ -9,6 +9,7 @@ import useHttp from "../../hooks/use-http";
 const PantryForm = (props) => {
   const [inputIngredient, setInputIngredient] = useState("");
   const [onFocus, setOnFocus] = useState(false);
+
   const {
     sendRequest,
     status,
@@ -27,7 +28,7 @@ const PantryForm = (props) => {
     // Update search prediction after given time passed
     const debounceTimer = setTimeout(() => {
       sendRequest(inputIngredient);
-    }, 300);
+    }, 200);
 
     return () => {
       clearTimeout(debounceTimer);
