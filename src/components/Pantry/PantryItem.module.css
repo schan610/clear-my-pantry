@@ -7,24 +7,22 @@
   margin-bottom: 2rem;
   border-bottom: solid 1px #343a40;
   color: #495057;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.03rem;
   text-transform: capitalize;
 }
 
-.feather {
+.feather-minus:hover {
+  cursor: pointer;
+  height: 2.8rem;
+  width: 2.8rem;
+}
+
+.feather-minus {
+  color: #e03131;
   height: 2.4rem;
   width: 2.4rem;
   stroke-width: 2;
-}
 
-.feather:hover {
-  cursor: pointer;
-}
-
-.feather-plus {
-  color: #2b8a3e;
-}
-.feather-minus {
-  color: #c92a2a;
+  transition: all 0.1s ease-in-out;
 }
