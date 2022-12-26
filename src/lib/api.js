@@ -6,7 +6,11 @@ export async function getAutoComplete(query) {
   const response = await fetch(
     `${API_AUTOCOMPLETE_URL}&query=${query}&number=5&metaInformation=true`
   );
-  const autoSearchData = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || "Could not fetch quotes.");
+  }
 
-  return autoSearchData;
+  const data = await response.json();
+
+  return data;
 }

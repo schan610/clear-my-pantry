@@ -6,10 +6,18 @@ import { useEffect, useState } from "react";
 import { getAutoComplete } from "../../lib/api";
 import useHttp from "../../hooks/use-http";
 
-const PantryForm = () => {
+const PantryForm = (props) => {
   const [inputIngredient, setInputIngredient] = useState("");
+  const [onFocus, setOnFocus] = useState(false);
+  const {
+    sendRequest,
+    status,
+    data: autoCompleteData,
+  } = useHttp(getAutoComplete, false);
 
-  const { sendRequest, data: autoCompleteData } = useHttp(getAutoComplete);
+  const toggleFocusHandler = () => {
+    setOnFocus((prevState) => !prevState);
+  };
 
   const inputHandler = (e) => {
     setInputIngredient(e.target.value);
@@ -17,41 +25,44 @@ const PantryForm = () => {
 
   useEffect(() => {
     // Update search prediction after given time passed
-    const timer = setTimeout(() => {
+    const debounceTimer = setTimeout(() => {
       sendRequest(inputIngredient);
     }, 300);
+
     return () => {
-      clearTimeout(timer);
+      clearTimeout(debounceTimer);
     };
-  }, [inputIngredient]);
+  }, [inputIngredient, sendRequest]);
 
-  // Submit Handler: add input to pantry
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    // Add some validation
-
-    // Add to pantry here
+  const addItem = (ing) => {
+    props.addItem({
+      name: ing.name,
+      id: ing.id,
+      api_join: ing.name.replace(/\s/g, "+"),
+    });
   };
+
   return (
     <>
-      <form onSubmit={submitHandler} className={classes.form}>
+      <form className={classes.wrapper}>
         <label> Select Ingredients</label>
-        <div className={classes.wrapper}>
-          <Search className={classes["feather-search"]} />
-          <input
-            onChange={inputHandler}
-            type="text"
-            placeholder="Search for ingredients..."
-          />
 
-          {autoCompleteData && <PantryAutoComplete data={autoCompleteData} />}
-          {/* {setShowAutoComplete &&
-          autoCompleteData &&
-          inputIngredient.trim() !== "" ? (
-            <PantryAutoComplete data={autoCompleteData} />
-          ) : null} */}
-        </div>
+        <Search className={classes["feather-search"]} />
+        <input
+          onBlur={toggleFocusHandler}
+          onFocus={toggleFocusHandler}
+          onChange={inputHandler}
+          type="text"
+          placeholder="Search for ingredients..."
+        />
+
+        {onFocus && (
+          <PantryAutoComplete
+            data={autoCompleteData}
+            status={status}
+            onAddItem={addItem}
+          />
+        )}
       </form>
     </>
   );

@@ -4,6 +4,7 @@ function httpReducer(state, action) {
   if (action.type === "SEND") {
     return {
       data: null,
+      // prevData:null,
       error: null,
       status: "pending",
     };

@@ -1,11 +1,13 @@
 .auto-box {
   position: absolute;
+  top: 100%;
   list-style: none;
   z-index: 2;
   background: #fff;
   width: 100%;
   padding: 0;
   text-align: left;
+  height: min-content;
 }
 
 .auto-box li {
@@ -25,8 +27,8 @@
   background-color: antiquewhite;
 }
 
-.chevron {
+.add {
   height: 2rem;
   width: 2rem;
-  color: #adb5bd;
+  color: #37b24d;
 }

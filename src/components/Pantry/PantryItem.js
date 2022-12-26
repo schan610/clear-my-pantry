@@ -1,11 +1,11 @@
 import classes from "./PantryItem.module.css";
-import { Plus, Minus } from "react-feather";
+import { Minus } from "react-feather";
 
-const PantryItem = () => {
+const PantryItem = (props) => {
   return (
     <li className={classes["pantry__item"]}>
       <Minus className={`${classes.feather} ${classes["feather-minus"]}`} />
-      bok choy
+      {props.name}
     </li>
   );
 };

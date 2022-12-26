@@ -1,40 +1,35 @@
-.form {
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
+  position: relative;
 }
 
-.form label {
+.wrapper label {
   font-size: 1.8rem;
   text-transform: uppercase;
 }
 
-.form input {
+.wrapper input {
   width: 100%;
   border: none;
-  padding: 1rem 2rem 1rem 3.8rem;
-  /* border-radius: 2rem; */
+  padding: 1.2rem 2rem 1.2rem 3.4rem;
 }
 
-.form input::placeholder {
+.wrapper input::placeholder {
   color: #adb5bd;
 }
 
-.form input:focus {
+.wrapper input:focus {
   outline: none;
 }
-.wrapper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  margin-bottom: 1.4rem;
-}
+
 .feather-search {
   position: absolute;
   height: 1.8rem;
 
   transform: translate(-50%, -50%);
-  top: 42.5%;
-  left: 6.3%;
+  top: 75%;
+  left: 5%;
 }
