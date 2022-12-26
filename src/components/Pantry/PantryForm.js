@@ -39,7 +39,7 @@ const PantryForm = (props) => {
     props.addItem({
       name: ing.name,
       id: ing.id,
-      api_join: ing.name.replace(/\s/g, "+"),
+      apiJoin: ing.name.replace(/\s/g, "+"),
     });
   };
 

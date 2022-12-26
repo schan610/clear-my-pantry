@@ -4,8 +4,15 @@ import PantryList from "./PantryList";
 
 import { useContext } from "react";
 import PantryContext from "../../context/PantryContext";
-
+import { getRecipes } from "../../lib/api";
+import useHttp from "../../hooks/use-http";
 const Pantry = () => {
+  const {
+    sendRequest,
+    status,
+    data: generatedRecipes,
+  } = useHttp(getRecipes, false);
+
   const pantryCtx = useContext(PantryContext);
 
   const getNewItem = (item) => {
@@ -17,6 +24,10 @@ const Pantry = () => {
     }
 
     pantryCtx.addItem(item);
+  };
+
+  const generateRecipesHandler = () => {
+    sendRequest(pantryCtx.items);
   };
 
   return (
@@ -33,7 +44,9 @@ const Pantry = () => {
       <PantryList />
 
       <div className={classes["btn-wrapper"]}>
-        <button className={classes.btn}>Generate Recipes</button>
+        <button onClick={generateRecipesHandler} className={classes.btn}>
+          Generate Recipes
+        </button>
       </div>
     </div>
   );

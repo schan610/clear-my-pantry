@@ -14,3 +14,19 @@ export async function getAutoComplete(query) {
 
   return data;
 }
+
+export async function getRecipes(pantryItems) {
+  const pantryNames = pantryItems.map((ing) => ing.apiJoin);
+  const joinedItems = pantryNames.join(",");
+
+  const response = await fetch(
+    `${API_RECIPE_URL}&ingredients=${joinedItems}&ignorePantry=true&number=10`
+  );
+  if (!response.ok) {
+    throw new Error(data.message || "Could not fetch quotes.");
+  }
+
+  const data = await response.json();
+
+  return data;
+}
