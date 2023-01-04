@@ -4,15 +4,8 @@ import PantryList from "./PantryList";
 
 import { useContext } from "react";
 import PantryContext from "../../context/PantryContext";
-import { getRecipes } from "../../lib/api";
-import useHttp from "../../hooks/use-http";
-const Pantry = () => {
-  const {
-    sendRequest,
-    status,
-    data: generatedRecipes,
-  } = useHttp(getRecipes, false);
 
+const Pantry = (props) => {
   const pantryCtx = useContext(PantryContext);
 
   const getNewItem = (item) => {
@@ -27,9 +20,8 @@ const Pantry = () => {
   };
 
   const generateRecipesHandler = () => {
-    sendRequest(pantryCtx.items);
+    props.clicked(pantryCtx.items);
   };
-
   return (
     <div className={classes.pantry}>
       {/* <div className={classes["pantry__message"]}>

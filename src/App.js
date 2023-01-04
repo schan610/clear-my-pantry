@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 
 import Layout from "./components/Layout/Layout";
@@ -8,11 +9,16 @@ import PantryProvider from "./context/PantryProvider";
 
 // Might need a global state (context API) to store Pantry updates and recipes....
 function App() {
+  const [pantry, setPantry] = useState(undefined);
+  const clickedGenerateRecipesHandler = (pantryItems) => {
+    setPantry(pantryItems);
+  };
+
   return (
     <PantryProvider>
       <Layout>
-        <Pantry />
-        <Recipes />
+        <Pantry clicked={clickedGenerateRecipesHandler} />
+        <Recipes pantryItems={pantry} />
       </Layout>
     </PantryProvider>
   );

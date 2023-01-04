@@ -7,7 +7,6 @@ const PantryList = (props) => {
   const pantryCtx = useContext(PantryContext);
 
   const removeItemHandler = (id) => {
-    console.log(id);
     pantryCtx.removeItem(id);
   };
 
