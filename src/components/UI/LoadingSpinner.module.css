@@ -1,0 +1,18 @@
+.loader {
+  color: #495057;
+  animation: rotate 3s linear infinite;
+  height: 3rem;
+  width: 3rem;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

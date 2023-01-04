@@ -1,5 +1,6 @@
 import classes from "./Recipes.module.css";
 
+import LoadingSpinner from "../UI/LoadingSpinner";
 import RecipeList from "./RecipeList";
 import { getRecipes } from "../../lib/api";
 import useHttp from "../../hooks/use-http";
@@ -22,7 +23,11 @@ const Recipes = (props) => {
   );
 
   if (status === "pending") {
-    content = <p>Loading</p>;
+    content = (
+      <div className={classes.loader}>
+        <LoadingSpinner />;
+      </div>
+    );
   }
 
   if (status === "completed") {

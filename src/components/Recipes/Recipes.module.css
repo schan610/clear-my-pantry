@@ -25,3 +25,9 @@
   font-size: 1.8rem;
   padding: 3rem;
 }
+
+.loader {
+  display: grid;
+  place-content: center;
+  padding: 3rem;
+}
