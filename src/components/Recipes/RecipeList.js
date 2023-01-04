@@ -3,7 +3,7 @@ import RecipeItem from "./RecipeItem";
 
 const RecipeList = (props) => {
   if (props.recipes.length === 0) {
-    return <p>No queries found</p>;
+    return <p className={classes["list-msg"]}>No queries found</p>;
   }
   return (
     <div className={classes["recipe__list"]}>

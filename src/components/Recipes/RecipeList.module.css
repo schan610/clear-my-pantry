@@ -9,3 +9,8 @@
   place-items: center;
   grid-gap: 3rem;
 }
+
+.list-msg {
+  font-size: 1.8rem;
+  padding: 3rem;
+}

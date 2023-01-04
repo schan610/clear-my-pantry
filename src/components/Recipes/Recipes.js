@@ -15,7 +15,7 @@ const Recipes = (props) => {
   }, [pantry, sendRequest]);
 
   let content = (
-    <p>
+    <p className={classes["recipe-msg"]}>
       To get started, add the ingredients you want to use and click generate
       recipes.
     </p>
