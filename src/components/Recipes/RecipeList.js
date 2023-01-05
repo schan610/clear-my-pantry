@@ -8,7 +8,13 @@ const RecipeList = (props) => {
   return (
     <div className={classes["recipe__list"]}>
       {props.recipes.map((rec) => (
-        <RecipeItem title={rec.title} key={rec.id} />
+        <RecipeItem
+          title={rec.title}
+          key={rec.id}
+          img={rec.image}
+          usedCount={rec.usedIngredientCount}
+          missedCount={rec.missedIngredientCount}
+        />
       ))}
     </div>
   );

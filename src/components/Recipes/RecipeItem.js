@@ -6,48 +6,34 @@ const RecipeItem = (props) => {
     <>
       <div className={classes["recipe__item"]}>
         <div className={classes["img-wrapper"]}>
-          <img
-            src="https://spoonacular.com/recipeImages/73420-312x231.jpg"
-            alt="Recipe"
-          />
+          <img src={props.img} alt="Recipe" />
         </div>
 
         <h2>{props.title}</h2>
         <div className={classes["recipe__summary"]}>
-          <div className={classes["recipe__uses"]}>
-            <p>Uses</p>
-            <ul>
-              <li>
-                <PlusCircle className={classes.plus} />
-                Onion
-              </li>
-              <li>
-                <PlusCircle className={classes.plus} />
-                Garlic
-              </li>
-              <li>
-                <PlusCircle className={classes.plus} />
-                and 4 more
-              </li>
-            </ul>
-          </div>
-          <div className={classes["recipe__missing"]}>
-            <p>Missing</p>
-            <ul>
-              <li>
-                <MinusCircle className={classes.minus} /> Onion Soup
-              </li>
-              <li>
-                <MinusCircle className={classes.minus} /> Garlic
-              </li>
-              <li>
-                <MinusCircle className={classes.minus} /> and 4 more
-              </li>
-            </ul>
+          <ul>
+            <li>
+              <PlusCircle className={classes.plus} />
+              {`Uses ${props.usedCount} ${
+                props.usedCount > 1 || props.usedCount === 0
+                  ? "ingredients"
+                  : "ingredient"
+              }`}
+            </li>
+            <li>
+              <MinusCircle className={classes.minus} />
+              {`Missing ${props.missedCount}  ${
+                props.missedCount > 1 || props.usedCount === 0
+                  ? "ingredients"
+                  : "ingredient"
+              }`}
+            </li>
+          </ul>
+
+          <div className={classes["btn-wrapper"]}>
+            <button className={classes.btn}>Recipe Details</button>
           </div>
         </div>
-
-        <button className={classes.btn}>Recipe Details</button>
       </div>
     </>
   );
