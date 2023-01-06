@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 1.4rem;
+
+  grid-row: 2;
+  grid-column: 1/-1;
+}
+
+.pagination span {
+  font-size: 1.5rem;
+}
+
+.icon {
+  color: #ff922b;
+  height: 2.8rem;
+  width: 2.8rem;
+}
+
+.icon:hover {
+  color: #ffa94d;
+  cursor: pointer;
+}

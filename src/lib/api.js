@@ -20,7 +20,7 @@ export async function getRecipes(pantryItems) {
   const joinedItems = pantryNames.join(",");
 
   const response = await fetch(
-    `${API_RECIPE_URL}&ingredients=${joinedItems}&ignorePantry=true&number=3`
+    `${API_RECIPE_URL}&ingredients=${joinedItems}&ignorePantry=true&number=10`
   );
   if (!response.ok) {
     throw new Error("Could not fetch recipes.");
