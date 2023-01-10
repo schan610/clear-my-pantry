@@ -1,12 +1,30 @@
+import { useState } from "react";
 import { PlusCircle, MinusCircle } from "react-feather";
 import classes from "./RecipeItem.module.css";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const RecipeItem = (props) => {
+  const [imgLoading, setImgLoading] = useState(true);
+
   return (
     <>
       <div className={classes["recipe__item"]}>
-        <div className={classes["img-wrapper"]}>
-          <img src={props.img} alt="Recipe" />
+        <div
+          className={classes["loading-img"]}
+          style={{ display: imgLoading ? "block" : "none" }}
+        >
+          <LoadingSpinner className={classes["center-loader"]} />
+        </div>
+
+        <div
+          className={classes["img-wrapper"]}
+          style={{ display: imgLoading ? "none" : "block" }}
+        >
+          <img
+            onLoad={() => setImgLoading(false)}
+            src={props.img}
+            alt="Recipe"
+          />
         </div>
 
         <h2>{props.title}</h2>

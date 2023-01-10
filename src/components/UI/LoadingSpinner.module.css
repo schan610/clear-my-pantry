@@ -1,3 +1,11 @@
+.wrapper {
+  display: flex;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+}
+
 .loader {
   color: #495057;
   animation: rotate 3s linear infinite;
