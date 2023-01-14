@@ -8,9 +8,13 @@ const PantryAutoComplete = (props) => {
 
   return (
     <ul className={classes["auto-box"]}>
-      {props.data.map((ing) => {
+      {props.data.map((ing, i) => {
         return (
-          <li key={ing.id} onMouseDown={props.onAddItem.bind(this, ing)}>
+          <li
+            key={ing.id}
+            onMouseDown={props.onAddItem.bind(this, ing)}
+            className={classes[`${props.cursor === i ? "active" : null}`]}
+          >
             <Plus className={classes.add} />
             {ing.name}
           </li>

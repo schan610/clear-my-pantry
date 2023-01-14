@@ -7,7 +7,6 @@
   width: 100%;
   padding: 0;
   text-align: left;
-  height: min-content;
 }
 
 .auto-box li {
@@ -30,5 +29,10 @@
 .add {
   height: 2rem;
   width: 2rem;
+  color: #37b24d;
+}
+
+.active {
+  background-color: antiquewhite;
   color: #37b24d;
 }
