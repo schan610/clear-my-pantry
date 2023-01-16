@@ -73,7 +73,8 @@
 
 .ingredients {
   color: #343a40;
-  margin-top: auto;
+  height: 100%;
+  margin-top: 2rem;
 }
 
 .ingredients h2 {

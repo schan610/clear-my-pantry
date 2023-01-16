@@ -18,7 +18,7 @@ const RecipeDetailSummary = (props) => {
         </button>
       </div>
       <div className={classes.summary}>
-        <h1>Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs</h1>
+        <h1>{recipeData.title}</h1>
 
         <span className={classes.tags}>Vegetarian</span>
 
