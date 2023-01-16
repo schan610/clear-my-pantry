@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { PlusCircle, MinusCircle } from "react-feather";
 import classes from "./RecipeItem.module.css";
 import LoadingSpinner from "../UI/LoadingSpinner";
@@ -49,7 +50,13 @@ const RecipeItem = (props) => {
           </ul>
 
           <div className={classes["btn-wrapper"]}>
-            <button className={classes.btn}>Recipe Details</button>
+            <Link
+              className={classes.btn}
+              to={`/${props.id}`}
+              data={props.title}
+            >
+              Recipe Details
+            </Link>
           </div>
         </div>
       </div>

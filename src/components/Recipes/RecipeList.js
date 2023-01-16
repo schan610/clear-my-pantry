@@ -58,6 +58,7 @@ const RecipeList = (props) => {
           <RecipeItem
             title={rec.title}
             key={rec.id}
+            id={rec.id}
             img={rec.image}
             usedCount={rec.usedIngredientCount}
             missedCount={rec.missedIngredientCount}

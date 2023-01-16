@@ -60,6 +60,7 @@
 .btn {
   font-size: 1.6rem;
   border: none;
+  text-decoration: none;
   background-color: #fd7e14;
   color: #fff;
   padding: 1rem 1.8rem;

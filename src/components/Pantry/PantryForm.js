@@ -58,7 +58,7 @@ const PantryForm = (props) => {
   };
 
   const submitHandler = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     setCursor(0);
     setInputIngredient("");
   };
@@ -67,7 +67,7 @@ const PantryForm = (props) => {
     <>
       <form onSubmit={submitHandler} className={classes.wrapper}>
         <label> Select Ingredients</label>
-        {/* <p className={classes.msg}>Ingredient already in your pantry</p> */}
+
         <Search className={classes["feather-search"]} />
         <input
           type="text"

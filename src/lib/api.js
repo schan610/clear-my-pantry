@@ -30,3 +30,11 @@ export async function getRecipes(pantryItems) {
 
   return data;
 }
+
+export async function getRecipeDetail(recipeId) {
+  const response = await fetch();
+
+  if (!response.ok) {
+    throw new Error("Error... recipe not found?");
+  }
+}
