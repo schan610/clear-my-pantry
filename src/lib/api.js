@@ -1,6 +1,7 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_RECIPE_URL = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}`;
 const API_AUTOCOMPLETE_URL = `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${API_KEY}`;
+const API_RECIPE_DETAIL_URL = `https://api.spoonacular.com/recipes/`;
 
 export async function getAutoComplete(query) {
   const response = await fetch(
@@ -32,9 +33,13 @@ export async function getRecipes(pantryItems) {
 }
 
 export async function getRecipeDetail(recipeId) {
-  const response = await fetch();
-
+  const response = await fetch(
+    `${API_RECIPE_DETAIL_URL}/${recipeId}/information?apiKey=${API_KEY}&includeNutrition=false`
+  );
   if (!response.ok) {
-    throw new Error("Error... recipe not found?");
+    throw new Error("Could not fetch recipes.");
   }
+
+  const data = await response.json();
+  return data;
 }
