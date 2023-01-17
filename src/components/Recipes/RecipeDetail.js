@@ -15,7 +15,6 @@ const RecipeDetail = (props) => {
   }, [sendRequest, param.recipeId]);
 
   if (status === "completed") {
-    console.log(recipeDetail.extendedIngredients);
     content = <RecipeDetailSummary data={recipeDetail} />;
   }
   return <div className={classes.detail}>{content}</div>;

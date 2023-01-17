@@ -52,7 +52,11 @@ const PantryForm = (props) => {
     if (e.key === "ArrowUp") {
       cursor <= 0 ? setCursor(4) : setCursor((prevState) => prevState - 1);
     }
-    if (autoCompleteData.length !== 0 && e.key === "Enter") {
+    if (
+      autoCompleteData &&
+      autoCompleteData.length !== 0 &&
+      e.key === "Enter"
+    ) {
       addItem(autoCompleteData[cursor]);
     }
   };

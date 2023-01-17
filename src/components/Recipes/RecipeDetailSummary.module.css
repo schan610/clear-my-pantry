@@ -47,19 +47,37 @@
   font-size: 3rem;
   color: #fd7e14;
 }
-
 .tags {
+  display: flex;
+  gap: 1.2rem;
+}
+.tag {
   font-size: 1.4rem;
   letter-spacing: 0.3px;
   font-weight: 500;
   color: #fff;
-  background-color: #37b24d;
   padding: 5px 10px;
   border-radius: 2rem;
+  background-color: #37b24d;
 
-  width: min-content;
+  width: fit-content;
 }
 
+.vegan {
+  background-color: #37b24d;
+}
+
+.vegetarian {
+  background-color: #74b816;
+}
+
+.dairy-free {
+  background-color: #228be6;
+}
+
+.gluten-free {
+  background-color: #f59f00;
+}
 .time-overview {
   font-size: 1.8rem;
   display: flex;
