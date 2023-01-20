@@ -5,8 +5,7 @@
   gap: 3rem;
   font-size: 1.4rem;
 
-  grid-row: 2;
-  grid-column: 1/-1;
+  grid-row: 6;
 }
 
 .pagination span {

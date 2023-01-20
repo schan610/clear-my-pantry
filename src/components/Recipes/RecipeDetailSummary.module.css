@@ -106,7 +106,7 @@
   flex-wrap: wrap;
 
   gap: 0.8rem;
-  max-height: 15rem;
+  max-height: 25rem;
 }
 
 .ingredient-list li {

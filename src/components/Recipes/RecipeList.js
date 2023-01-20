@@ -3,7 +3,7 @@ import RecipeItem from "./RecipeItem";
 import RecipesPagination from "./RecipesPagination";
 import { useState } from "react";
 
-const RECIPES_PER_PAGE = 3;
+const RECIPES_PER_PAGE = 4;
 
 const calcNumOfPages = (numRecipes) => {
   return Math.ceil(numRecipes / RECIPES_PER_PAGE);
@@ -20,7 +20,12 @@ const getCurRecipes = (recipes, startingIndex, curPage, numPages) => {
     curRecipes = recipes.slice(startingIndex);
     return curRecipes;
   }
-  for (let i = startingIndex; i <= startingIndex + 2; i++) {
+
+  for (
+    let i = startingIndex;
+    i <= startingIndex + (RECIPES_PER_PAGE - 1);
+    i++
+  ) {
     curRecipes.push(recipes[i]);
   }
   return curRecipes;
@@ -31,7 +36,7 @@ const RecipeList = (props) => {
 
   const recipes = props.recipes;
 
-  if (recipes.length === 0) {
+  if (!recipes || recipes.length === 0) {
     return <p className={classes["list-msg"]}>No queries found</p>;
   }
   const numberOfPages = calcNumOfPages(recipes.length);

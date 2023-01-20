@@ -25,7 +25,7 @@ const Recipes = (props) => {
   if (status === "pending") {
     content = (
       <div className={classes.loader}>
-        <LoadingSpinner />;
+        <LoadingSpinner />
       </div>
     );
   }

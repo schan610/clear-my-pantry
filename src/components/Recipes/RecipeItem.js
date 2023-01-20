@@ -9,7 +9,11 @@ const RecipeItem = (props) => {
 
   return (
     <>
-      <div className={classes["recipe__item"]}>
+      <Link
+        to={`/${props.id}`}
+        data={props.title}
+        className={classes["recipe__item"]}
+      >
         <div
           className={classes["loading-img"]}
           style={{ display: imgLoading ? "block" : "none" }}
@@ -28,8 +32,8 @@ const RecipeItem = (props) => {
           />
         </div>
 
-        <h2>{props.title}</h2>
         <div className={classes["recipe__summary"]}>
+          <h2>{props.title}</h2>
           <ul>
             <li>
               <PlusCircle className={classes.plus} />
@@ -48,18 +52,8 @@ const RecipeItem = (props) => {
               }`}
             </li>
           </ul>
-
-          <div className={classes["btn-wrapper"]}>
-            <Link
-              className={classes.btn}
-              to={`/${props.id}`}
-              data={props.title}
-            >
-              Recipe Details
-            </Link>
-          </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };
