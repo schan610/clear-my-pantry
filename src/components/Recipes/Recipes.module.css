@@ -31,3 +31,36 @@
   place-content: center;
   padding: 3rem;
 }
+@media screen and (max-width: 69em) {
+  .header h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 54em) {
+  .recipes {
+    grid-column: 2;
+    grid-row: 2;
+    margin-left: 0;
+  }
+
+  .recipe-msg {
+    font-size: 1.6rem;
+    padding: 3rem;
+  }
+}
+
+@media screen and (max-width: 32em) {
+  .recipes {
+    padding: 1.2rem;
+  }
+  .recipe-msg {
+    font-size: 1.6rem;
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 22em) {
+  .recipe-msg {
+    font-size: 1.4rem;
+  }
+}

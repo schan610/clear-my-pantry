@@ -32,11 +32,7 @@ const RecipeDetailSummary = (props) => {
           Image &copy; {recipeData.creditsText}
         </span>
       </div>
-      <div className={classes["back-wrapper"]}>
-        <Link to={"/"} className={classes.back}>
-          <ArrowLeft />
-        </Link>
-      </div>
+
       <div className={classes.summary}>
         <h1>{recipeData.title}</h1>
 
@@ -59,16 +55,22 @@ const RecipeDetailSummary = (props) => {
             ))}
           </ul>
         </div>
+        <div className={classes["btn-wrapper"]}>
+          <a
+            className={classes.btn}
+            href={recipeData.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Full Recipe Here
+          </a>
+        </div>
       </div>
-      <div className={classes["btn-wrapper"]}>
-        <a
-          className={classes.btn}
-          href={recipeData.sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Full Recipe Here
-        </a>
+
+      <div className={classes["back-wrapper"]}>
+        <Link to={"/"} className={classes.back}>
+          <ArrowLeft />
+        </Link>
       </div>
     </>
   );

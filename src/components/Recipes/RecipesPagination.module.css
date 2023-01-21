@@ -1,11 +1,11 @@
 .pagination {
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 5rem;
   font-size: 1.4rem;
-
-  grid-row: 6;
+  grid-row: 5;
 }
 
 .pagination span {

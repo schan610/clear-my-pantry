@@ -36,3 +36,15 @@
   background-color: antiquewhite;
   color: #37b24d;
 }
+
+@media screen and (max-width: 54em) {
+  .auto-box {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 32em) {
+  .auto-box {
+    width: 100%;
+  }
+}

@@ -37,3 +37,20 @@
   color: #9f8170;
   margin-bottom: 1.2rem;
 }
+
+@media screen and (max-width: 54em) {
+  .hero__text h1 {
+    font-size: 5rem;
+  }
+  .hero__description p {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 32em) {
+  .hero__text h1 {
+    font-size: 4.4rem;
+  }
+  .hero__description p {
+    font-size: 1.8rem;
+  }
+}

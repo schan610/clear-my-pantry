@@ -139,3 +139,17 @@
   place-content: center;
   padding: 3rem;
 }
+
+@media screen and (max-width: 54em) {
+  .detail {
+    grid-column: 2 / span 1;
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}

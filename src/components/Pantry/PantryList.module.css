@@ -14,3 +14,32 @@
   font-size: 1.6rem;
   font-weight: 600;
 }
+
+@media screen and (max-width: 69em) {
+  .pantry__list {
+    height: 32rem;
+  }
+}
+
+@media screen and (max-width: 54em) {
+  .pantry__list {
+    height: min-content;
+    max-height: 24rem;
+  }
+
+  .pantry__list p {
+    padding: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 32em) {
+  .pantry__list ul {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 22em) {
+  .pantry__list p {
+    font-size: 1.4rem;
+  }
+}

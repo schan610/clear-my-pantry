@@ -1,11 +1,21 @@
 .grid {
+  height: min-content;
   display: grid;
+  grid-template-columns:
+    minmax(2rem, 1fr) minmax(30rem, 40rem) minmax(60rem, 95rem)
+    minmax(2rem, 1fr);
 
-  grid-template-columns: minmax(2rem, 1fr) 40rem minmax(60rem, 95rem) minmax(
-      2rem,
-      1fr
-    );
+  grid-template-rows: min-content;
 
   background-color: #fff;
   padding: 6rem 0;
+}
+
+@media screen and (max-width: 54em) {
+  .grid {
+    grid-template-columns: 2.4rem 1fr 2.4rem;
+    grid-template-rows: repeat(2, fit-content);
+
+    row-gap: 3rem;
+  }
 }

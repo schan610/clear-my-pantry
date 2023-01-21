@@ -36,3 +36,32 @@
   /* top: 82%; */
   left: 5%;
 }
+
+@media screen and (max-width: 69em) {
+  .wrapper label {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 54em) {
+  .wrapper input {
+    width: 85%;
+    padding: 1.6rem 2rem 1.6rem 3.4rem;
+  }
+
+  .feather-search {
+    top: 72%;
+    left: 9.6%;
+  }
+}
+
+@media screen and (max-width: 32em) {
+  .wrapper input {
+    width: 100%;
+    padding: 1.6rem 2rem 1.6rem 3.4rem;
+  }
+  .feather-search {
+    top: 72%;
+    left: 4%;
+  }
+}
