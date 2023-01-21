@@ -31,9 +31,32 @@
   place-content: center;
   padding: 3rem;
 }
+
+.error {
+  font-size: 1.6em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.error__icon {
+  height: 2.8rem;
+  width: 2.8rem;
+  color: #fd7e14;
+  align-self: flex-start;
+}
+
 @media screen and (max-width: 69em) {
   .header h1 {
     font-size: 2.4rem;
+  }
+
+  .error__icon {
+    height: 2.4rem;
+    width: 2.4rem;
+    color: #fd7e14;
+    align-self: flex-start;
   }
 }
 

@@ -6,9 +6,16 @@ import { getRecipes } from "../../lib/api";
 import useHttp from "../../hooks/use-http";
 import { useEffect } from "react";
 
+import { AlertCircle } from "react-feather";
+
 const Recipes = (props) => {
   const pantry = props.pantryItems;
-  const { sendRequest, status, data: generatedRecipes } = useHttp(getRecipes);
+  const {
+    sendRequest,
+    status,
+    error,
+    data: generatedRecipes,
+  } = useHttp(getRecipes);
 
   useEffect(() => {
     if (!pantry) return;
@@ -32,6 +39,15 @@ const Recipes = (props) => {
 
   if (status === "completed") {
     content = <RecipeList recipes={generatedRecipes} />;
+  }
+
+  if (error) {
+    content = (
+      <p className={classes.error}>
+        <AlertCircle className={classes["error__icon"]} />
+        {error}
+      </p>
+    );
   }
 
   return (

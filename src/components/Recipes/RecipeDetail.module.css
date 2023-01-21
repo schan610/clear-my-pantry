@@ -140,13 +140,35 @@
   padding: 3rem;
 }
 
+.error {
+  font-size: 1.8rem;
+
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.error__icon {
+  height: 2.8rem;
+  width: 2.8rem;
+  color: #fd7e14;
+  align-self: flex-start;
+}
 @media screen and (max-width: 54em) {
   .detail {
     grid-column: 2 / span 1;
     grid-template-columns: 1fr;
     padding: 0;
   }
+  .error {
+    font-size: 1.6rem;
+  }
 
+  .error__icon {
+    height: 2.4rem;
+    width: 2.4rem;
+  }
   .summary {
     display: flex;
     flex-direction: column;

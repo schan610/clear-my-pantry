@@ -6,9 +6,16 @@ import { getRecipeDetail } from "../../lib/api";
 import useHttp from "../../hooks/use-http";
 import { useEffect } from "react";
 
+import { AlertCircle } from "react-feather";
+
 const RecipeDetail = () => {
   const param = useParams();
-  const { sendRequest, status, data: recipeDetail } = useHttp(getRecipeDetail);
+  const {
+    sendRequest,
+    status,
+    error,
+    data: recipeDetail,
+  } = useHttp(getRecipeDetail);
   let content;
   // Render recipe details here
   useEffect(() => {
@@ -24,6 +31,15 @@ const RecipeDetail = () => {
   }
   if (status === "completed") {
     content = <RecipeDetailSummary data={recipeDetail} />;
+  }
+
+  if (error) {
+    content = (
+      <p className={classes.error}>
+        <AlertCircle className={classes["error__icon"]} />
+        {error}
+      </p>
+    );
   }
   return <div className={classes.detail}>{content}</div>;
 };
