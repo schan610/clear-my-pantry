@@ -65,3 +65,43 @@
     left: 4%;
   }
 }
+
+.auto-box {
+  position: absolute;
+  top: 100%;
+  list-style: none;
+  z-index: 2;
+  background: #fff;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  min-height: 20rem;
+}
+
+.auto-box li {
+  padding: 1rem 0;
+  padding-left: 1.2rem;
+  height: min-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.6rem;
+  color: #495057;
+}
+
+.auto-box li:hover {
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+
+.add {
+  height: 2rem;
+  width: 2rem;
+  color: #37b24d;
+}
+
+.active {
+  background-color: antiquewhite;
+  color: #37b24d;
+}

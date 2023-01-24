@@ -22,12 +22,9 @@ const Pantry = (props) => {
   const generateRecipesHandler = () => {
     props.clicked(pantryCtx.items);
   };
+
   return (
     <div className={classes.pantry}>
-      {/* <div className={classes["pantry__message"]}>
-        <p>Ingredient already in pantry</p>
-      </div> */}
-
       <div className={classes.header}>
         <h1>Your Ingredients</h1>
         <PantryForm addItem={getNewItem} />
