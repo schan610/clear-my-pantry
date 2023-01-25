@@ -9,9 +9,10 @@ import RecipeDetail from "./components/Recipes/RecipeDetail";
 
 import PantryProvider from "./context/PantryProvider";
 
-// Might need a global state (context API) to store Pantry updates and recipes....
 function App() {
-  const [pantry, setPantry] = useState(undefined);
+  const [pantry, setPantry] = useState(null);
+
+  // listen for onClick on generate recipes to pass on to Recipes component
   const clickedGenerateRecipesHandler = (pantryItems) => {
     setPantry(pantryItems);
   };
@@ -29,7 +30,6 @@ function App() {
               </>
             }
           ></Route>
-
           <Route path="/:recipeId" element={<RecipeDetail />}></Route>
         </Routes>
       </Layout>

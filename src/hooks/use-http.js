@@ -1,41 +1,45 @@
 import { useReducer, useCallback } from "react";
 
+/*  This custom hook retrieves a fetch api function to send request, stores and updates response status
+ and returns fetch request data using useReducer */
 function httpReducer(state, action) {
-  if (action.type === "SEND") {
-    return {
-      data: null,
-      // prevData:null,
-      error: null,
-      status: "pending",
-    };
-  }
+  switch (action.type) {
+    case "SEND":
+      return {
+        data: null,
+        error: null,
+        status: "pending",
+      };
+    case "SUCCESS":
+      return {
+        data: action.responseData,
+        error: null,
+        status: "completed",
+      };
 
-  if (action.type === "SUCCESS") {
-    return {
-      data: action.responseData,
-      error: null,
-      status: "completed",
-    };
-  }
+    case "ERROR":
+      return {
+        data: null,
+        error: action.errorMessage,
+        status: "completed",
+      };
 
-  if (action.type === "ERROR") {
-    return {
-      data: null,
-      error: action.errorMessage,
-      status: "completed",
-    };
+    default:
+      return state;
   }
-
-  return state;
 }
 
-function useHttp(requestFunction, startWithPending = false) {
+//
+function useHttp(requestFunction) {
+  // set up default states
   const [httpState, dispatch] = useReducer(httpReducer, {
-    status: startWithPending ? "pending" : null,
+    status: null,
     data: null,
     error: null,
   });
 
+  // useCallback: prevent re-creation of request functions upon state changes with requestFunction
+  // as a dependency.avoids unnecessary re-fetching.
   const sendRequest = useCallback(
     async function (requestData) {
       dispatch({ type: "SEND" });
@@ -52,6 +56,7 @@ function useHttp(requestFunction, startWithPending = false) {
     [requestFunction]
   );
 
+  // return updated state
   return {
     sendRequest,
     ...httpState,

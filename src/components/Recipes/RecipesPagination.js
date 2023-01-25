@@ -3,17 +3,11 @@ import { ArrowRightCircle, ArrowLeftCircle } from "react-feather";
 const RecipesPagination = (props) => {
   return (
     <div className={classes.pagination}>
-      <ArrowLeftCircle
-        className={classes.icon}
-        onClick={() => props.clicked(`left`)}
-      />
+      <ArrowLeftCircle className={classes.icon} onClick={() => props.clicked(`left`)} />
 
       <span>{`Page ${props.curPage} of ${props.numPages}`}</span>
 
-      <ArrowRightCircle
-        className={classes.icon}
-        onClick={() => props.clicked(`right`)}
-      />
+      <ArrowRightCircle className={classes.icon} onClick={() => props.clicked(`right`)} />
     </div>
   );
 };

@@ -6,7 +6,7 @@ const PantryItem = (props) => {
     <li className={classes["pantry__item"]}>
       <Minus
         className={`${classes.feather} ${classes["feather-minus"]}`}
-        onClick={props.removeItem.bind(this, props.id)}
+        onClick={() => props.removeItem(props.id)}
       />
       {props.name}
     </li>

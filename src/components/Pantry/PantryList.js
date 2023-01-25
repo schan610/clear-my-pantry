@@ -3,7 +3,7 @@ import PantryItem from "./PantryItem";
 import { useContext } from "react";
 import PantryContext from "../../context/PantryContext";
 
-const PantryList = (props) => {
+const PantryList = () => {
   const pantryCtx = useContext(PantryContext);
 
   const removeItemHandler = (id) => {
@@ -12,19 +12,10 @@ const PantryList = (props) => {
 
   return (
     <div className={classes["pantry__list"]}>
-      {pantryCtx.items.length <= 0 && (
-        <p>Your pantry is empty, add some ingredients by searching above!</p>
-      )}
+      {pantryCtx.items.length <= 0 && <p>Your pantry is empty, add some ingredients by searching above!</p>}
       <ul>
         {pantryCtx.items.map((ing) => {
-          return (
-            <PantryItem
-              name={ing.name}
-              key={ing.id}
-              id={ing.id}
-              removeItem={removeItemHandler}
-            />
-          );
+          return <PantryItem name={ing.name} key={ing.id} id={ing.id} removeItem={removeItemHandler} />;
         })}
       </ul>
     </div>

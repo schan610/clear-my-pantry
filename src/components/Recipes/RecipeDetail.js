@@ -1,27 +1,23 @@
 import classes from "./RecipeDetail.module.css";
-import RecipeDetailSummary from "./RecipeDetailSummary";
+import { AlertCircle } from "react-feather";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import RecipeDetailSummary from "./RecipeDetailSummary";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { getRecipeDetail } from "../../lib/api";
 import useHttp from "../../hooks/use-http";
-import { useEffect } from "react";
-
-import { AlertCircle } from "react-feather";
 
 const RecipeDetail = () => {
+  // get recipeId with useParams
   const param = useParams();
-  const {
-    sendRequest,
-    status,
-    error,
-    data: recipeDetail,
-  } = useHttp(getRecipeDetail);
-  let content;
-  // Render recipe details here
+  const { sendRequest, status, error, data: recipeDetail } = useHttp(getRecipeDetail);
+
+  // Render recipe details on page load
   useEffect(() => {
     sendRequest(param.recipeId);
   }, [sendRequest, param.recipeId]);
 
+  let content;
   if (status === "pending") {
     content = (
       <div className={classes.loader}>

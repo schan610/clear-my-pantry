@@ -10,25 +10,23 @@ import { AlertCircle } from "react-feather";
 
 const Recipes = (props) => {
   const pantry = props.pantryItems;
-  const {
-    sendRequest,
-    status,
-    error,
-    data: generatedRecipes,
-  } = useHttp(getRecipes);
+  // useHttp hook to handle fetch api, data,  and display loading status or errors on UI
+  const { sendRequest, status, error, data: generatedRecipes } = useHttp(getRecipes);
 
+  // Only send requests when pantry items have changed
   useEffect(() => {
+    // Guard statement: pantry is not in default state (null)
     if (!pantry) return;
     sendRequest(pantry);
   }, [pantry, sendRequest]);
 
   let content = (
     <p className={classes["recipe-msg"]}>
-      To get started, add the ingredients you want to use and click generate
-      recipes.
+      To get started, add the ingredients you want to use and click generate recipes.
     </p>
   );
 
+  // Handle api response to UI
   if (status === "pending") {
     content = (
       <div className={classes.loader}>

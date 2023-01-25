@@ -3,6 +3,7 @@ import RecipeIngredients from "./RecipeIngredients";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 
+// store available tags for looping through available tags
 const tags = [
   { tagName: "vegan", name: "Vegan", style: "vegan" },
   { tagName: "vegetarian", name: "Vegetarian", style: "vegetarian" },
@@ -13,6 +14,7 @@ const tags = [
 const RecipeDetailSummary = (props) => {
   const recipeData = props.data;
 
+  // Store valid recipe tags to display
   let showTags = [];
   tags.forEach((tag) => {
     if (!recipeData[tag.tagName]) return;
@@ -28,9 +30,7 @@ const RecipeDetailSummary = (props) => {
     <>
       <div className={classes["img-wrapper"]}>
         <img src={recipeData.image} alt={recipeData.title} />
-        <span className={classes.credits}>
-          Image &copy; {recipeData.creditsText}
-        </span>
+        <span className={classes.credits}>Image &copy; {recipeData.creditsText}</span>
       </div>
 
       <div className={classes.summary}>
@@ -56,12 +56,7 @@ const RecipeDetailSummary = (props) => {
           </ul>
         </div>
         <div className={classes["btn-wrapper"]}>
-          <a
-            className={classes.btn}
-            href={recipeData.sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className={classes.btn} href={recipeData.sourceUrl} target="_blank" rel="noopener noreferrer">
             Full Recipe Here
           </a>
         </div>

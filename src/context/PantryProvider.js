@@ -1,25 +1,26 @@
 import { useReducer } from "react";
 import PantryContext from "./PantryContext";
 
+// This context api is used to keep track of the pantry state through multiple components
 const defaultPantryState = {
   items: [],
 };
 const pantryReducer = (state, action) => {
-  if (action.type === "ADD") {
-    const item = action.item;
-    const updatedItems = state.items.concat(item);
-    const updateState = { ...state, items: updatedItems };
+  switch (action.type) {
+    case "ADD": {
+      const updatedItems = state.items.concat(action.item);
+      const updatedState = { ...state, items: updatedItems };
+      return updatedState;
+    }
+    case "REMOVE": {
+      const updatedItems = state.items.filter((ing) => ing.id !== action.id);
+      const updatedState = { ...state, items: updatedItems };
+      return updatedState;
+    }
 
-    return updateState;
+    default:
+      return defaultPantryState;
   }
-  if (action.type === "REMOVE") {
-    const updatedItems = state.items.filter((ing) => ing.id !== action.id);
-    const updateState = { ...state, items: updatedItems };
-
-    return updateState;
-  }
-
-  return defaultPantryState;
 };
 
 const PantryProvider = (props) => {
@@ -37,11 +38,7 @@ const PantryProvider = (props) => {
     addItem: addItemHandler,
     removeItem: removeItemHandler,
   };
-  return (
-    <PantryContext.Provider value={pantryContext}>
-      {props.children}
-    </PantryContext.Provider>
-  );
+  return <PantryContext.Provider value={pantryContext}>{props.children}</PantryContext.Provider>;
 };
 
 export default PantryProvider;

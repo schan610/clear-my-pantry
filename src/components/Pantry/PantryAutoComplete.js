@@ -6,13 +6,9 @@ import useHttp from "../../hooks/use-http";
 import { useEffect } from "react";
 
 const PantryAutoComplete = (props) => {
-  const {
-    sendRequest,
-    status,
-    error,
-    data: autoCompleteData,
-  } = useHttp(getAutoComplete, true);
+  const { sendRequest, status, error, data: autoCompleteData } = useHttp(getAutoComplete);
 
+  // Prevent from calling multiple inputs with timer
   useEffect(() => {
     // Update search prediction after given time passed
     const debounceTimer = setTimeout(() => {
@@ -27,7 +23,12 @@ const PantryAutoComplete = (props) => {
   let content;
   if (status === "pending") content = <LoadingSpinner />;
 
-  if (error) content = <li>{error}</li>;
+  if (error)
+    content = (
+      <p>
+        <AlertCircle /> {error}
+      </p>
+    );
 
   if (status === "completed") {
     content = autoCompleteData.map((ing, i) => {
@@ -35,23 +36,19 @@ const PantryAutoComplete = (props) => {
         <li
           key={ing.id}
           className={classes[`${props.cursor === i ? "active" : null}`]}
-          onClick={props.addItem.bind(this, ing)}
+          onMouseDown={() => props.addItem(ing)}
         >
           <Plus className={classes.add} />
           {ing.name}
         </li>
       );
     });
+    // Passing current autocomplete list to PantryForm
     props.passData(autoCompleteData);
   }
 
   if (status === "completed" && autoCompleteData.length === 0)
-    content = (
-      <p>
-        <AlertCircle />
-        Could not find ingredient
-      </p>
-    );
+    content = <p>Could not find ingredient</p>;
 
   return <ul className={classes["auto-box"]}>{content}</ul>;
 };

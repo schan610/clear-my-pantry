@@ -3,6 +3,7 @@ const API_RECIPE_URL = `https://api.spoonacular.com/recipes/findByIngredients?ap
 const API_AUTOCOMPLETE_URL = `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=${API_KEY}`;
 const API_RECIPE_DETAIL_URL = `https://api.spoonacular.com/recipes/`;
 
+// Retrieve autocomplete choices on user input
 export async function getAutoComplete(query) {
   try {
     const response = await fetch(
@@ -20,8 +21,10 @@ export async function getAutoComplete(query) {
   }
 }
 
+// Retrieve recipes based on users current pantry items
 export async function getRecipes(pantryItems) {
   try {
+    // merge pantry names into one string to send to fetch
     const pantryNames = pantryItems.map((ing) => ing.apiJoin);
     const joinedItems = pantryNames.join(",");
 
@@ -40,6 +43,7 @@ export async function getRecipes(pantryItems) {
   }
 }
 
+// Retrieve recipe detail data based on selected recipe through recipeId
 export async function getRecipeDetail(recipeId) {
   try {
     const response = await fetch(
