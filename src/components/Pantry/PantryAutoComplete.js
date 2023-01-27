@@ -30,7 +30,7 @@ const PantryAutoComplete = (props) => {
       </p>
     );
 
-  if (status === "completed") {
+  if (autoCompleteData && status === "completed") {
     content = autoCompleteData.map((ing, i) => {
       return (
         <li
