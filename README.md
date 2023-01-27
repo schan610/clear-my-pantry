@@ -6,8 +6,9 @@ This web app uses the Spoonacular API which allows users to search through a lis
 
 Made with React and includes:
 
-- Fetch API
-- Autocomplete search
-- Keyboard navigation through search
-- Pagination
-- Routing
+* Responsive web design
+* Fetch API
+* Autocomplete search
+* Keyboard navigation through search
+* Pagination
+* Routing
